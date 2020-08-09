@@ -10,7 +10,7 @@ else {
 }
 
 function error() {
-    alert("Couldn't find you! Please Turn on your Location!!");
+    alert("Couldn't find you! Please Turn on your Location and reload again!!");
 }
 
 function success(position) {
