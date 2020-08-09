@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather app</title>
+    <script src="script.js"></script>
+
+    <style>
+        /* Set the size of the div element that contains the map */
+        #map {
+            height: 400px;
+            /* The height is 400 pixels */
+            width: 50%;
+            /* The width is the width of the web page */
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="container">
+        <center>
+            <input type="text" id="city">
+            <br>
+            <p id="data">
+
+            </p>
+            <button id="submit">check</button>
+
+            <br><br>
+
+            <div id="map"></div>
+
+        </center>
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDe3kAfA_c1TbfrcDsbW04CKR4zhB83sDE">
+    </script>
+</body>
+
+</html>
