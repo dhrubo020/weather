@@ -17,24 +17,26 @@
 </head>
 
 <body>
-    
+
     <div class="container">
         <!-- nav bar -->
         <nav class="navbar  navbar-expand-lg navbar-light">
-            <a class="navbar-brand text-white" href="#"><b><span style="font-size: 30px;"><span  style="background-color: orange; padding:0px 6px; border-radius: 3px;">Weather</span></span></b></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+            <a class="navbar-brand text-white" href="#"><b><span style="font-size: 30px;"><span
+                            style="background-color: orange; padding:0px 6px; border-radius: 3px;">Weather</span></span></b></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-              <div class="navbar-nav ml-auto">
-                <a class="nav-item nav-link text-white" href="#">Home</a>
-                <a class="nav-item nav-link text-white" href="#">Features</a>
-                <a class="nav-item nav-link text-white" href="#">News</a>
-                <a class="nav-item nav-link text-white" href="#">About</a>
-              </div>
+                <div class="navbar-nav ml-auto">
+                    <a class="nav-item nav-link text-white" href="#">Home</a>
+                    <a class="nav-item nav-link text-white" href="#">Features</a>
+                    <a class="nav-item nav-link text-white" href="#">News</a>
+                    <a class="nav-item nav-link text-white" href="#">About</a>
+                </div>
             </div>
-          </nav>
-      <!-- nav bar end -->
+        </nav>
+        <!-- nav bar end -->
 
         <div class="row">
             <!-- left -->
@@ -61,8 +63,8 @@
                         <img src="images/icon1.png" class="img-fluid" alt="">
                     </div>
                     <div class="heading ml-3">
-                        <h4S>Weather Report <span id="place"></span></h4>
-                            <p class="d-block"><span id="date"></span> <span id="time"></span> <span id="place"></span></p>
+                        <h4S>Weather Report </h4>
+                            <p><span id="place"></span></p>
                     </div>
                 </div>
 
@@ -79,26 +81,31 @@
                                     <br>
                                     <span id="wind"></span>
                                 </p>
-                                    
+
                             </div>
 
                         </div>
                         <div class="col-md-6">
                             <div class="sky">
                                 <div class="align-items-center">
-                                    <img src="images/sun.png" class="img-fluid sun-img img-responsive center-block" alt="">
+                                    <img src="images/sun.png" class="img-fluid sun-img img-responsive center-block"
+                                        alt="">
                                 </div>
-                                <div class="sun pt-1 center-text">
+                                <div class="sun center-text">
                                     Sunrise <br> <span id="sunrise"></span> <br>
                                     Sunset <br> <span id="sunset"></span>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- last row -->
-                <div class="head p-2 d-flex align-items-center justify-content-center">
+                <div class="head pt-3 d-flex align-items-center justify-content-center">
+                    <p class="d-block"><span id="date"></span> <span id="time"></span> <span id="place"></span> | BD
+                        Time</p>
+                </div>
+                <div class="container mt-3 d-flex align-items-center justify-content-center">
                     <a href="#" class="fa fa-facebook"></a>
                     <a href="#" class="fa fa-twitter"></a>
                     <a href="#" class="fa fa-google"></a>
@@ -109,9 +116,7 @@
         </div>
     </div>
 
-<div class="container">
     
-</div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

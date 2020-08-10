@@ -1,6 +1,7 @@
 function p(){
     console.log(arguments);
 }
+window.onload = function () {
 var lat=0,lon=0;
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(success, error);
@@ -14,7 +15,7 @@ function error() {
 }
 
 function success(position) {
-    dateTime();
+    
     lat = position.coords.latitude;
     lon = position.coords.longitude;
     console.log(lat,lon);
@@ -26,6 +27,7 @@ function success(position) {
     .catch(function(error){
         alert("Error!!");
     })
+    dateTime();
     //initMap();
 }
 
@@ -62,7 +64,7 @@ function extractData(data){
     p(city,country,temp,minTemp,maxTemp,sky,icon,windSpeed);
     //document.getElementById("data").innerText = JSON.stringify(data);
     console.log(city);
-    document.getElementById("place").innerText = `in ${city}, ${country}`;
+    document.getElementById("place").innerText = ` ${city}, ${country}`;
     document.getElementById("temp").innerText = `${temp}℃`;
     document.getElementById("condition").innerText = description;
     // document.getElementById("min").innerText = minTemp+"℃";
@@ -118,11 +120,12 @@ function dateTime(){
      document.getElementById("date").innerText = `${dayName}, ${day} ${month}, ${year} | ${time}`;
 }
 
-window.onload = function () {
+
     let click = document.getElementById("input");
     p(click)
     if (click) {
         click.addEventListener("click", function () {
+            
              let city = document.getElementById("city").value;
              let fatching = `https://api.openweathermap.org/data/2.5/weather?q=${city}&&appid=874fe07570267eb296db81c47a4960c7`;
              fetch(fatching)
@@ -131,6 +134,7 @@ window.onload = function () {
              .catch(function(error){
                  alert("City not found!!");
              })
+             dateTime();
         })
     }
 }
