@@ -10,7 +10,7 @@ else {
 }
 
 function error() {
-    alert("Couldn't find you! Please Turn on your Location and reload again!!");
+    alert("Couldn't find you! Please Turn on your Location!!");
 }
 
 function success(position) {
@@ -26,9 +26,19 @@ function success(position) {
     .catch(function(error){
         alert("Error!!");
     })
+    //initMap();
 }
 
-
+// Initialize and add the map
+// function initMap() {
+//     console.log("map " +lat,lon);
+//     var uluru = {lat: lat, lng: lon};
+//     // The map, centered at Uluru
+//     var map = new google.maps.Map(
+//         document.getElementById('map'), {zoom: 10, center: uluru});
+//     // The marker, positioned at Uluru
+//     var marker = new google.maps.Marker({position: uluru, map: map});
+//   }
 function extractData(data){
     console.log(data);
     let country = data.sys.country;
@@ -48,6 +58,8 @@ function extractData(data){
     let sunrise = sun(data.sys.sunrise);
     let sunset = sun(data.sys.sunset);
 
+    
+    p(city,country,temp,minTemp,maxTemp,sky,icon,windSpeed);
     //document.getElementById("data").innerText = JSON.stringify(data);
     console.log(city);
     document.getElementById("place").innerText = `in ${city}, ${country}`;
@@ -121,9 +133,5 @@ window.onload = function () {
              })
         })
     }
-}
-
-
-    document.getElementById("data").innerText = JSON.stringify(data);
 }
 
