@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather app</title>
+    <!-- <script src="script.js"></script> -->
+
+    <style>
+        /* Set the size of the div element that contains the map */
+        #map {
+            height: 400px;
+            /* The height is 400 pixels */
+            width: 50%;
+            /* The width is the width of the web page */
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="container">
+        <center>
+            <input type="text" id="city">
+            <br>
+            <p id="data">
+
+            </p>
+            <button id="submit">check</button>
+
+            <br><br>
+
+            <div id="map"></div>
+
+        </center>
+    </div>
+
+    <script defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDz2u2DhMFcVGYAyF9i7E14NlhW6oJ4fHU&callback=initMap">
+        </script>
+    <script>
+        var lat = 0, lon = 0;
+
+
+        function initMap() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(success, error);
+            }
+            else {
+                alert('Geolocation is not supported');
+            }
+        }
+        // fun error
+        function error() {
+            alert("Couldn't find you! Please Turn on your Location!!");
+        }
+        //fun success
+        function success(position) {
+
+            lat = position.coords.latitude;
+            lon = position.coords.longitude;
+            console.log(lat, lon);
+
+            let fatching = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=874fe07570267eb296db81c47a4960c7`;
+            fetch(fatching)
+                .then(response => response.json())
+                .then(data => extractData(data));
+
+            displyMap();
+        }
+
+        function displyMap() {
+            console.log("map " + lat, lon);
+            var place = { lat: lat, lng: lon };
+            var map = new google.maps.Map(
+                document.getElementById('map'), { zoom: 10, center: place });
+            var marker = new google.maps.Marker({ position: place, map: map });
+        }
+
+        function extractData(data) {
+            console.log(data);
+            let country = data.sys.country;
+            let city = data.name;
+
+            let temp = (data.main.temp - 273).toFixed(2);
+            let minTemp = (data.main.temp_min - 273).toFixed(2);
+            let maxTemp = (data.main.temp_max - 273).toFixed(2);
+
+            let sky = data.weather[0].main;
+            let icon = data.weather[0].icon;
+
+            let windSpeed = data.wind.speed;
+
+            console.log(city, country, temp, minTemp, maxTemp, sky, icon, windSpeed);
+            document.getElementById("data").innerText = JSON.stringify(data);
+        }
+    </script>
+</body>
+
+</html>
