@@ -75,3 +75,8 @@ body{
     background-color: white;
     font-weight: 500;
 }
+.center-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
